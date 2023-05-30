@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* VARIABLES */
+:root {
+    --PARAGRAPH-COLOR: hsl(0, 0%, 56%);
+    --INTRO-PARAGRAPH-COLOR:hsla(234, 12%, 34%, 0.598);
+    --INTRO-TITLE-2:hsl(0, 0%, 21%);
+    --CARD-TITLE-COLOR:hsla(0, 0%, 21%, 0.795);
+    --FF:'Poppins', sans-serif;
+    --FW-TITLE-1: lighter;
+    --FW-TITLE-PARAGRAPH:"600";
+    --FW-CARD-PARAGRAPH:"400";
+    --FS-CARD-TITLE: "1rem"
+}
+
+.intro_container {
+    width: min(90%, 800px);
+    margin: 50px auto;
+    text-align: center;
+}
+
+.non-bold_title {
+    font-weight: var(--FW-TITLE-1);
+    font-family: var(--FF);
+    font-size: clamp(1rem,5.5vw,1.6rem);
+}
+
+.title {
+    color: var(--CARD-TITLE-COLOR);
+    font-family: var(--FF);
+    font-size: clamp(1rem,5.5vw,1.55rem);
+    color: var(--INTRO-TITLE-2);
+}
+
+.intro_container p {
+    color: var(--INTRO-PARAGRAPH-COLOR);
+    font-family: var(--FF);
+    padding: 15px 15px;
+    font-size: clamp(0.8rem,5.5vw,1rem)
+}
+
+.cards_container {
+    width: min(90%,1400px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: repeat(4 ,1fr);
+    gap: 30px;
+}
+
+.card {
+    padding: 15px 15px 90px 15px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 1rem 2rem .5rem #dedede;
+}
+
+.card h2 {
+    font-family: var(--FF);
+    color: var(--CARD-TITLE-COLOR);
+    font-size: var(--FS-CARD-TITLE);
+}
+
+.card p {
+    color: var(--PARAGRAPH-COLOR);
+}
+
+.card img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-40%,-40%);
+}
+
+.card_1 {
+    border-top: 3px solid hsl(180, 62%, 55%);
+}
+.card_2 {
+    border-top: 3px solid hsl(0, 78%, 62%);
+}
+.card_3 {
+    border-top: 3px solid hsl(34, 97%, 64%);
+}
+.card_4 {
+    border-top: 3px solid hsl(212, 86%, 64%);
+}
+
+/* MEDIUM SCREENS */
+@media (min-width:40em) {
+    .cards_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* LARGE SCREENS */
+@media (min-width:70em) {
+    .cards_container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: 
+        "leftmid top rightmid"
+        "leftmid bottom rightmid";
+    }
+
+    .card_1 {
+        grid-area: leftmid;
+        align-self: center;
+    }
+    .card_2 {
+        grid-area: top;
+    }
+    .card_3 {
+        grid-area: bottom;
+    }
+    .card_4 {
+        grid-area: rightmid;
+        align-self: center;
+    }
+}
+
+/* CREDITS */
+.credits {
+    font-size: 1rem;
+    margin-top: 50px;
+    text-align: center;
+}
+.credits > a {
+    text-decoration: none;
+}
